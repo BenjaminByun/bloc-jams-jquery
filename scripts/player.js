@@ -49,4 +49,8 @@ class Player {
   }
 }
 
+  // prettyTime (timeInSeconds) {
+  //   if (this.playState !== 'playing') { return }
+  // }
+
 const player = new Player();

@@ -15,31 +15,24 @@
     player.playPause(nextSong);
   });
 
-<<<<<<< HEAD
-  setInterval( () => {
-    if (player.playState !== 'playing') { return; }
-    const currentTime = player.getTime();
-    const duration = player.getDuration();
-    const percent = (currentTime / duration)* 100;
-    $('#time-control input').val(perecent);
-  }, 1000);
-};
-=======
 $('#time-control input').on('input', function (event) {
   player.skipTo(event.target.value);
 });
 
+$('#volume-control input').on('input', function (event) {
+  player.setVolume(event.target.value);
+})
 
 setInterval( () => {
   if (player.playState !== 'playing') { return; }
   const currentTime = player.getTime();
   const duration = player.getDuration();
   const percent = (currentTime / duration) * 100;
-  $('#time-control .current-time').text( currentTime );
+  $('#time-control .current-time').text( Math.floor(currentTime) );
+  $('#time-control .total-time').text( Math.floor(duration) );
   $('#time-control input').val(percent);
 }, 1000);
 
->>>>>>> sliders
 
   $('button#previous').on('click', function() {
     if (player.playState !== 'playing') { return; }
