@@ -38,6 +38,12 @@ class Player {
     }
   }
 
+  prettyTime(song){
+    const minutes= Math.floor(song / 60);
+    const seconds = Number(song%60/100).toFixed(2).substring(2);
+    return minutes+':'+seconds;
+  }
+
   skipTo (percent) {
     if (this.playState !== 'playing') { return }
     this.soundObject.setTime( (percent / 100) * this.soundObject.getDuration() );
@@ -49,8 +55,6 @@ class Player {
   }
 }
 
-  // prettyTime (timeInSeconds) {
-  //   if (this.playState !== 'playing') { return }
-  // }
+
 
 const player = new Player();
